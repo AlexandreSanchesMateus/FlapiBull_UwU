@@ -10,25 +10,34 @@ public class InputScreen : MonoBehaviour
     private TMP_InputField inputField;
     private string inputText;
     public TMP_Text introText;
+    public TMP_Text floatroText;
+    private Vector3 inputPosition;
 
     void Start()
     {
         inputField = GetComponent<TMP_InputField>();
         inputText = inputField.text;
+        inputPosition = new Vector3(-46.1f, inputField.GetComponent<RectTransform>().position.y - 72, 0);
     }
 
     void Update()
     {
         inputText = inputField.text;
-        if ((inputText == "FlappiBulle" || inputText == "Flappibulle") && Input.GetKeyDown(KeyCode.Return))
+        if ((inputText == "run\"FlappiBulle" || inputText == "run\"Flappibulle") && Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneManager.sceneCount + 1);
         }
+
         else if (Input.GetKeyDown(KeyCode.Return) && inputText != "" )
         {
             Debug.Log(inputField.GetComponent<RectTransform>().position.y);
             introText.text += "Error\n";
-            inputField.GetComponent<RectTransform>().localPosition = new Vector3(-46.1f, inputField.GetComponent<RectTransform>().position.y - 5, 0);
+
+            inputField.GetComponent<RectTransform>().localPosition = inputPosition;
+            inputPosition = new Vector3(inputPosition.x, inputPosition.y - 12, inputPosition.z);
+
+            floatroText.text = "";
+            inputField.text = "";
         }
     }
 }
