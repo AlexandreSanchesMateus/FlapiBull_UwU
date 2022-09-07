@@ -11,6 +11,7 @@ public class InputScreen : MonoBehaviour
     private string inputText;
     public TMP_Text introText;
     public TMP_Text floatroText;
+    public GameObject jojoSong;
     private Vector3 inputPosition;
 
     void Start()
@@ -23,9 +24,16 @@ public class InputScreen : MonoBehaviour
     void Update()
     {
         inputText = inputField.text;
-        if ((inputText == "run\"FlappiBulle" || inputText == "run\"Flappibulle") && Input.GetKeyDown(KeyCode.Return))
+        if (inputText.ToLower() == "run\"flappiBulle"  && Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneManager.sceneCount + 1);
+        }
+
+        else if (inputText.ToLower() == "dl\"jba.ogg" && Input.GetKeyDown(KeyCode.Return))
+        {
+            jojoSong.SetActive(true);
+            floatroText.text = "";
+            inputField.text = "";
         }
 
         else if (Input.GetKeyDown(KeyCode.Return) && inputText != "" )
@@ -33,8 +41,8 @@ public class InputScreen : MonoBehaviour
             Debug.Log(inputField.GetComponent<RectTransform>().position.y);
             introText.text += "Error\n";
 
-            inputField.GetComponent<RectTransform>().localPosition = inputPosition;
-            inputPosition = new Vector3(inputPosition.x, inputPosition.y - 12, inputPosition.z);
+            //inputField.GetComponent<RectTransform>().localPosition = inputPosition;
+            //inputPosition = new Vector3(inputPosition.x, inputPosition.y - 12, inputPosition.z);
 
             floatroText.text = "";
             inputField.text = "";

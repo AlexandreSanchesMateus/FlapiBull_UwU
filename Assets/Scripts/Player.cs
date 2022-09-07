@@ -28,7 +28,6 @@ public class Player : Entity
             yield return new WaitForSeconds(0.05f);
         }
 
-
         canShot = false;
         yield return new WaitForSeconds(1);
         canShot = true;
