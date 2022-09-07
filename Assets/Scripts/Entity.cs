@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] protected float speed;
+    [Header ("Movement Settings")]
+    [SerializeField] protected float horizontalSpeed = 1;
+    [SerializeField] protected float verticalSpeed = 1;
 
     protected void Move(Vector2 direction)
     {
-        gameObject.transform.position = new Vector2(transform.position.x + direction.x * Time.deltaTime, transform.position.y + direction.y * speed * Time.deltaTime);
+        gameObject.transform.position = new Vector2(transform.position.x + direction.x * verticalSpeed * Time.deltaTime, transform.position.y + direction.y * horizontalSpeed * Time.deltaTime);
+    }
+
+    protected virtual void OnActivation()
+    {
+
     }
 }
