@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
-    public int oldIndex;
+    private int oldIndex;
 
     public int randomMin;
     public int randomMax;
 
-    public void SceneLoad(int index) {
+    private int index = 0;
+
+    public void SceneLoad() {
         index = Random.Range(randomMin, randomMax);
         if (index == oldIndex) {
             index = Random.Range(randomMin, randomMax);
