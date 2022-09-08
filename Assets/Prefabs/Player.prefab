@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7127778046320651992
 Transform:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   verticalSpeed: 1
   floatingSpeed: 1
   reverseShot: -0.5
-  numberReverseTic: 5
+  numberReverseTic: 3
 --- !u!114 &7127778046320651997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34767b859a75197469f2fa3b54eb0c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomMin: 0
-  randomMax: 0
+  randomMin: 1
+  randomMax: 3
 --- !u!114 &7127778046320651987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,4 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 7127778046320651986}
+  timeBeforeLoad: 0
   tagName: Finish
+  timer: 0.7
+  lumiereGeneral: {fileID: 0}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerData : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int oxygenLost = 10;
     [SerializeField] private float timeLosing = 1;
 
+    [Header ("Fade settings")]
+
+    [SerializeField] private float timer = 0.7f;
+    [SerializeField] private Light2D lumiereGeneral;
+
     private Coroutine subRoutine;
     public bool isScoring { get; private set; }
     private Vector2 startPosition;
@@ -24,7 +30,15 @@ public class PlayerData : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 
     void Start()
@@ -83,7 +97,7 @@ public class PlayerData : MonoBehaviour
         player.transform.position = new Vector2(player.transform.position.x, -5);
         startPosition = player.transform.position;
 
-        Invoke("Bite", 0.5f);
+        StartCoroutine(Bite());
         subRoutine = StartCoroutine("LosingOxygene");
     }
 
@@ -113,8 +127,17 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    private void Bite()
+    private IEnumerator Bite()
     {
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 0.33f;
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 0.66f;
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 1;
+
+        yield return new WaitForSeconds(0.5f);
+
         isScoring = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Death");
         foreach(GameObject obj in enemies)
@@ -124,5 +147,6 @@ public class PlayerData : MonoBehaviour
                 component.OnActivation();
             }
         }
+
     }
 }
