@@ -33,7 +33,7 @@ public class Oursin : Entity
 
     private void Update()
     {
-        Move(new Vector2(direction * horizontalSpeed, verticalSpeed));
+        Move(new Vector2(direction * horizontalSpeed, -1));
 
         // Rebondit sur les murs; n'est pas validé par les GD :;(
         /*RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 2);
