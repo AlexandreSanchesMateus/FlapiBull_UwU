@@ -1345,6 +1345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7127778046320651984, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7127778046320651986, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
       propertyPath: randomMax
       value: 3
