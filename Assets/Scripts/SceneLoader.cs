@@ -17,6 +17,8 @@ public class SceneLoader : MonoBehaviour {
             index = Random.Range(randomMin, randomMax);
         }
 
+        oldIndex = index;
+
         SceneManager.LoadScene(index, LoadSceneMode.Single);
         PlayerData.instance.InitDepth();
     }
