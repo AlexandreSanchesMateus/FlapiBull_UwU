@@ -13,7 +13,7 @@ public class InputScreen : MonoBehaviour
     public TMP_Text floatroText;
     public GameObject jojoSong;
     private Vector3 inputPosition;
-
+    public GameObject wattilogo;
     void Start()
     {
         inputField = GetComponent<TMP_InputField>();
@@ -24,9 +24,9 @@ public class InputScreen : MonoBehaviour
     void Update()
     {
         inputText = inputField.text;
-        if (inputText.ToLower() == "run\"flappiBulle"  && Input.GetKeyDown(KeyCode.Return))
+        if (inputText.ToLower() == "run\"flappibulle"  && Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(SceneManager.sceneCount + 1);
+            StartCoroutine(ecranIntroWatti());
         }
 
         else if (inputText.ToLower() == "dl\"jba.ogg" && Input.GetKeyDown(KeyCode.Return))
@@ -41,11 +41,15 @@ public class InputScreen : MonoBehaviour
             Debug.Log(inputField.GetComponent<RectTransform>().position.y);
             introText.text += "Error\n";
 
-            //inputField.GetComponent<RectTransform>().localPosition = inputPosition;
-            //inputPosition = new Vector3(inputPosition.x, inputPosition.y - 12, inputPosition.z);
-
             floatroText.text = "";
             inputField.text = "";
         }
+    }
+
+    private IEnumerator ecranIntroWatti ()
+    {
+        wattilogo.SetActive(true);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.sceneCount);
     }
 }
