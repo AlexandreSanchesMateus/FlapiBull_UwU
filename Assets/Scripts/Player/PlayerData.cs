@@ -22,6 +22,11 @@ public class PlayerData : MonoBehaviour
     private int score = 0;
     private int priviousScore = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         DontDestroyOnLoad(this.transform);
