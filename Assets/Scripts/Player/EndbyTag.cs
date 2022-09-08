@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 [RequireComponent(typeof(SceneLoader))]
 public class EndbyTag : MonoBehaviour
@@ -8,6 +9,11 @@ public class EndbyTag : MonoBehaviour
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private float timeBeforeLoad;
     [SerializeField] private string tagName;
+
+    [Header("Fade settings")]
+
+    [SerializeField] private float timer = 0.7f;
+    [SerializeField] private Light2D lumiereGeneral;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,8 +27,14 @@ public class EndbyTag : MonoBehaviour
     private IEnumerator StopAllBoy()
     {
         yield return new WaitForSeconds(0.5f);
-        // TRANSITION HERE
-        yield return new WaitForSeconds(timeBeforeLoad);
+
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 0.66f;
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 0.33f;
+        yield return new WaitForSeconds(timer);
+        lumiereGeneral.intensity = 0;
+
         sceneLoader.SceneLoad();
     }
 }
