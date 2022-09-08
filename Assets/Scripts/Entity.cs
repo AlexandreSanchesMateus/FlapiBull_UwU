@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
 
     protected void Move(Vector2 direction)
     {
-        gameObject.transform.position = new Vector2(transform.position.x + direction.x * verticalSpeed * Time.deltaTime, transform.position.y + direction.y * horizontalSpeed * Time.deltaTime);
+        gameObject.transform.position = new Vector2(transform.position.x + direction.x * horizontalSpeed * Time.deltaTime, transform.position.y + direction.y * verticalSpeed * Time.deltaTime);
     }
 
     protected virtual void OnActivation()
