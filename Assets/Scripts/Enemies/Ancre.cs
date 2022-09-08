@@ -14,7 +14,7 @@ public class Ancre : Entity
 
     void Update()
     {
-        Move(new Vector2(0, verticalSpeed));
+        Move(new Vector2(0, -1));
     }
 
     protected override void OnActivation()
