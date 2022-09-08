@@ -12,9 +12,20 @@ public class Murene : Entity
 
     private int direction;
     private bool isMoving = false;
+    private bool hasBeenActivate = false;
 
-    private void Start()
+    /*private void Start()
     {
+        if (startOut)
+            StartCoroutine("GoIn");
+        else
+            StartCoroutine("GoOut");
+    }*/
+
+    public override void OnActivation()
+    {
+        hasBeenActivate = true;
+
         if (startOut)
             StartCoroutine("GoIn");
         else
@@ -23,6 +34,17 @@ public class Murene : Entity
 
     private void Update()
     {
+        if (!PlayerData.instance.isScoring)
+        {
+            if (hasBeenActivate)
+            {
+                StopAllCoroutines();
+                this.enabled = false;
+            }
+            
+            return;
+        }
+
         if (isMoving)
             Move(new Vector2(direction, 0));
     }

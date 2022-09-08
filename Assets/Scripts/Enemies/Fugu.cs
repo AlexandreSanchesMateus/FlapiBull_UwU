@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fugu : MonoBehaviour
+public class Fugu : Entity
 {
     //[SerializeField] private AnimationCurve animation;
 
@@ -15,11 +15,29 @@ public class Fugu : MonoBehaviour
     // private bool isGrowing;
     // private float time;
     private Vector3 defaultSize;
+    private bool hasBeenActivate = false;
 
-    private void Start()
+    /*private void Start()
     {
         defaultSize = transform.localScale;
         StartCoroutine(FuguGrowing());
+    }*/
+
+    public override void OnActivation()
+    {
+        hasBeenActivate = true;
+
+        defaultSize = transform.localScale;
+        StartCoroutine(FuguGrowing());
+    }
+
+    private void Update()
+    {
+        if (!PlayerData.instance.isScoring && hasBeenActivate)
+        {
+            StopAllCoroutines();
+            this.enabled = false;
+        }
     }
 
     private IEnumerator FuguGrowing()

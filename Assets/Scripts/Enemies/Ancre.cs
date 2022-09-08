@@ -14,10 +14,13 @@ public class Ancre : Entity
 
     void Update()
     {
+        if (!PlayerData.instance.isScoring)
+            return;
+
         Move(new Vector2(0, -1));
     }
 
-    protected override void OnActivation()
+    public override void OnActivation()
     {
         audioSource.Play();
     }

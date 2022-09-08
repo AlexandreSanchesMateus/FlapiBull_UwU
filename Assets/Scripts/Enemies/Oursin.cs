@@ -15,10 +15,26 @@ public class Oursin : Entity
     [SerializeField] private float maxRandomValue;
 
     private int direction = 0;
+    private bool hasBeenActivate = false;
 
 
-    private void Start()
+    /*private void Start()
     {
+        if (startLeft)
+            direction = -1;
+        else
+            direction = 1;
+
+        if (random)
+            StartCoroutine("RandomHorizontalMovement");
+        else
+            StartCoroutine("HorizontalMovement");
+    }*/
+
+    public override void OnActivation()
+    {
+        hasBeenActivate = true;
+
         if (startLeft)
             direction = -1;
         else
@@ -33,6 +49,18 @@ public class Oursin : Entity
 
     private void Update()
     {
+
+        if (!PlayerData.instance.isScoring)
+        {
+            if (hasBeenActivate)
+            {
+                StopAllCoroutines();
+                this.enabled = false;
+            }
+
+            return;
+        }
+
         Move(new Vector2(direction * horizontalSpeed, -1));
 
         // Rebondit sur les murs; n'est pas validé par les GD :;(

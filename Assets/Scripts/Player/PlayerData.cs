@@ -15,8 +15,8 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private float timeLosing = 1;
 
     private Coroutine subRoutine;
-    private bool isScoring;
-    private float startPosition;
+    public bool isScoring { get; private set; }
+    private Vector2 startPosition;
 
     private int oxygene = 0;
     private int score = 0;
@@ -41,7 +41,7 @@ public class PlayerData : MonoBehaviour
         if(isScoring)
         {
             // Calcule la profondeur du tableau
-            int depth = (int)(player.transform.position.y - startPosition);
+            int depth = (int)(player.transform.position.y - startPosition.y);
             // Additionne aux tableaux précédents
             score = priviousScore + depth;
             // Update l'affichage
@@ -78,16 +78,29 @@ public class PlayerData : MonoBehaviour
 
     public void InitDepth()
     {
-        startPosition = player.transform.position.y;
-        isScoring = true;
+        Debug.Log("INIT");
+
+        player.transform.position = new Vector2(player.transform.position.x, -5);
+        startPosition = player.transform.position;
+
+        Invoke("Bite", 0.5f);
         subRoutine = StartCoroutine("LosingOxygene");
     }
 
     public void StopScoring()
     {
+        Debug.Log("STOP");
+
         StopAllCoroutines();
         isScoring = false;
         priviousScore = score;
+    }
+
+    public void Death()
+    {
+        isScoring = false;
+        StopAllCoroutines();
+        this.enabled = false;
     }
 
     // Perd de la vie à temps régulier
@@ -97,6 +110,19 @@ public class PlayerData : MonoBehaviour
         {
             yield return new WaitForSeconds(timeLosing);
             LostOxygene(oxygenLost);
+        }
+    }
+
+    private void Bite()
+    {
+        isScoring = true;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Death");
+        foreach(GameObject obj in enemies)
+        {
+            if (obj.TryGetComponent<Entity>(out Entity component))
+            {
+                component.OnActivation();
+            }
         }
     }
 }

@@ -38,6 +38,9 @@ public class Espadon : Entity
 
     void Update()
     {
+        if (!PlayerData.instance.isScoring)
+            return;
+
         newDirection = newPosition - gameObject.transform.position;
 
         if (newDirection.magnitude < 0.1f)

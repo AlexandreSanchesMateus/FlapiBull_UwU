@@ -12,6 +12,9 @@ public class Player : Entity
 
     void Update()
     {
+        if (!PlayerData.instance.isScoring)
+            return;
+
         Move(new Vector2(Input.GetAxisRaw("Horizontal"), floatingSpeed));
 
         if (Input.GetKeyDown(KeyCode.E) && canShot)

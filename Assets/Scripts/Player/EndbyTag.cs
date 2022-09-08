@@ -6,13 +6,23 @@ using UnityEngine;
 public class EndbyTag : MonoBehaviour
 {
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private float timeBeforeLoad;
     [SerializeField] private string tagName;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == tagName)
         {
-            sceneLoader.SceneLoad();
+            PlayerData.instance.StopScoring();
+            StartCoroutine("StopAllBoy");
         }
+    }
+
+    private IEnumerator StopAllBoy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // TRANSITION HERE
+        yield return new WaitForSeconds(timeBeforeLoad);
+        sceneLoader.SceneLoad();
     }
 }
