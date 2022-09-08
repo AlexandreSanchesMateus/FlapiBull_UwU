@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4865775111873241340}
   - component: {fileID: 4549987499245223675}
   - component: {fileID: 7399224553882369134}
+  - component: {fileID: 553076253453789187}
   m_Layer: 0
   m_Name: Oursin
   m_TagString: Death
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5587791784950981916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.7076871, y: -0.5783266, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.324867, y: 5.324867, z: 5.324867}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 5c674d7bbc39a874689e5ff669fad1fb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,10 +97,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 1
-  verticalSpeed: 1
-  timeInSec: []
+  verticalSpeed: 1.5
+  timeInSec:
+  - 0.5
   startLeft: 0
-  loop: 0
+  loop: 1
   random: 0
   minRandomValue: 0
   maxRandomValue: 0
+--- !u!58 &553076253453789187
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587791784950981916}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006555231, y: -0.026556756}
+  serializedVersion: 2
+  m_Radius: 0.13291453

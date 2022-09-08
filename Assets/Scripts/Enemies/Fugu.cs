@@ -16,6 +16,10 @@ public class Fugu : Entity
     // private float time;
     private Vector3 defaultSize;
     private bool hasBeenActivate = false;
+    private CircleCollider2D circleCollide;
+    [SerializeField] private Sprite fuguGros;
+    [SerializeField] private Sprite fuguPetit;
+    private SpriteRenderer spriteRenderer;
 
     /*private void Start()
     {
@@ -25,6 +29,8 @@ public class Fugu : Entity
 
     public override void OnActivation()
     {
+        circleCollide = GetComponent<CircleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         hasBeenActivate = true;
 
         defaultSize = transform.localScale;
@@ -44,9 +50,13 @@ public class Fugu : Entity
     {
         while (true)
         {
-            transform.localScale = defaultSize;
+            circleCollide.radius = 0.24f;
+            spriteRenderer.sprite = fuguPetit;
             yield return new WaitForSeconds(timeLow);
-            transform.localScale = new Vector3(size, size, 0);
+
+
+            circleCollide.radius = 0.63f;
+            spriteRenderer.sprite = fuguGros;
             yield return new WaitForSeconds(timeBig);
         }
     }
