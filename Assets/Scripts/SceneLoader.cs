@@ -12,11 +12,13 @@ public class SceneLoader : MonoBehaviour {
     private int index = 0;
 
     public void SceneLoad() {
-        index = Random.Range(randomMin, randomMax);
-        if (index == oldIndex) {
-            index = Random.Range(randomMin, randomMax);
+        if (randomMax - randomMin > 0) {
+            do {
+                index = Random.Range(randomMin, randomMax);
+            } while (index == oldIndex);
         }
 
         SceneManager.LoadScene(index, LoadSceneMode.Single);
+        oldIndex = index;
     }
 }
