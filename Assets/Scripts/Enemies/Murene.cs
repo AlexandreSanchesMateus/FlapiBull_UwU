@@ -34,7 +34,7 @@ public class Murene : Entity
             StartCoroutine("GoOut");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!PlayerData.instance.isScoring)
         {

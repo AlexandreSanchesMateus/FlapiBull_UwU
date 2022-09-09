@@ -10,7 +10,7 @@ public class Player : Entity
 
     [SerializeField] private int numberReverseTic = 5;
 
-    void Update()
+    void FixedUpdate()
     {
         if (!PlayerData.instance.isScoring)
             return;

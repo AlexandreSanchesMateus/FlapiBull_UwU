@@ -8,7 +8,7 @@ public class BulleMontante : Entity
     [SerializeField] private int oxigeneGain;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move(new Vector2(0,1));
     }

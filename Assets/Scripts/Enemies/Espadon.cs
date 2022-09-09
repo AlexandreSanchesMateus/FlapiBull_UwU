@@ -36,7 +36,7 @@ public class Espadon : Entity
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!PlayerData.instance.isScoring)
             return;
