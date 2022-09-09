@@ -11,17 +11,22 @@ public class Player : Entity
     [SerializeField] private int numberReverseTic = 5;
     [SerializeField] private int oxygeneLost;
 
-    void FixedUpdate()
+    void Update()
+    {
+        //Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), floatingSpeed);
+        //gameObject.transform.position = new Vector2(transform.position.x + direction.x * horizontalSpeed * Time.deltaTime, transform.position.y + direction.y * verticalSpeed * Time.deltaTime);
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.JoystickButton1)) && canShot)
+        {
+            StartCoroutine(Shot());
+        }
+    }
+    private void FixedUpdate()
     {
         if (!PlayerData.instance.isScoring)
             return;
 
         Move(new Vector2(Input.GetAxisRaw("Horizontal"), floatingSpeed));
-
-        if (Input.GetKeyDown(KeyCode.E) && canShot)
-        {
-            StartCoroutine(Shot());
-        }
     }
 
     private IEnumerator Shot ()
