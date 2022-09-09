@@ -17,6 +17,8 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int oxygenLost = 10;
     [SerializeField] private float timeLosing = 1;
 
+    public ScoreManagement2 scoreBoard;
+
     [Header ("Fade settings")]
 
     [SerializeField] private float timer = 0.7f;
@@ -69,16 +71,15 @@ public class PlayerData : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                // int indexScene = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene(8, LoadSceneMode.Single);
+                //int indexScene = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
                 Destroy(this.gameObject);
 
-                /*int count = this.transform.childCount;
+                int count = this.transform.childCount;
                 for (int i = 0; i < count; i++)
-                    Destroy(this.transform.GetChild(i).gameObject);*/
+                    Destroy(this.transform.GetChild(i).gameObject);
 
-                // SceneManager.UnloadSceneAsync(indexScene);
-                // Invoke("Delay", 0.2f);
+                scoreBoard.AddScore(score);
             }
         }
     }
@@ -135,11 +136,6 @@ public class PlayerData : MonoBehaviour
         StopAllCoroutines();
         gameOverScene.SetActive(true);
         isDead = true;
-    }
-
-    private void Delay()
-    {
-        // ScoreManagement.instance.AddScore(score);
     }
 
     // Perd de la vie à temps régulier

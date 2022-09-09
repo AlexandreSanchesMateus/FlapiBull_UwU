@@ -395,6 +395,7 @@ MonoBehaviour:
   oxygenMax: 100
   oxygenLost: 10
   timeLosing: 1
+  scoreBoard: {fileID: 11400000, guid: c628a2e4f0f64b845aa2ba69f6a618c0, type: 2}
   timer: 0.5
   lumiereGeneral: {fileID: 1438106512}
   isDead: 0

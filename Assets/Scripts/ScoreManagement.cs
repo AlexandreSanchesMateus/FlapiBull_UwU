@@ -8,15 +8,15 @@ using TMPro;
 public class ScoreManagement : MonoBehaviour
 {
 
-    public static ScoreManagement instance { get; private set; }
+    //public static ScoreManagement instance { get; private set; }
 
     [SerializeField] private GameObject[] scoreSlot;
 
-    private SortedDictionary<int, Detail> scoreBoard = new SortedDictionary<int, Detail>();
-    private GameObject canvas;
+    //private SortedDictionary<int, Detail> scoreBoard = new SortedDictionary<int, Detail>();
+    //private GameObject canvas;
 
 
-    private void Awake()
+    /*private void Awake()
     {
         if(instance == null)
         {
@@ -27,11 +27,20 @@ public class ScoreManagement : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
+    }*/
 
     private void Start()
     {
-        canvas = gameObject.transform.GetChild(0).gameObject;
+        //canvas = gameObject.transform.GetChild(0).gameObject;
+
+        for(int i = 0; i < PlayerData.instance.scoreBoard.ScoreBoard.Count; i++)
+        {
+            scoreSlot[i].GetComponent<TextMeshProUGUI>().text = "" + PlayerData.instance.scoreBoard.ScoreBoard[i].score;
+            scoreSlot[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerData.instance.scoreBoard.ScoreBoard[i].hour + ":" + PlayerData.instance.scoreBoard.ScoreBoard[i].min + 
+                " " + PlayerData.instance.scoreBoard.ScoreBoard[i].month + "/" + PlayerData.instance.scoreBoard.ScoreBoard[i].day;
+            
+            Debug.Log("Moi");
+        }
     }
 
     void Update()
@@ -41,16 +50,16 @@ public class ScoreManagement : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 // Destroy Ancien player
-                PlayerData.instance.isDead = false;
-                Destroy(PlayerData.instance.gameObject);
+                // PlayerData.instance.isDead = false;
+                //Destroy(PlayerData.instance.gameObject);
 
-                canvas.SetActive(false);
+                // canvas.SetActive(false);
                 SceneManager.LoadScene(8, LoadSceneMode.Single);
             }
         }
     }
 
-    public void AddScore(int value)
+    /*public void AddScore(int value)
     {
         scoreBoard.Add(value, new Detail());
         if(scoreBoard.Count > 4)
@@ -59,6 +68,7 @@ public class ScoreManagement : MonoBehaviour
         canvas.SetActive(true);
 
         int index = 0;
+
         foreach(KeyValuePair<int, Detail> paire in scoreBoard)
         {
             scoreSlot[index].GetComponent<TextMeshProUGUI>().text = "" + paire.Key;
@@ -72,5 +82,5 @@ public class ScoreManagement : MonoBehaviour
         int seconds;
         int day;
         int month;
-    }
+    }*/
 }
