@@ -24,7 +24,7 @@ public class PlayerData : MonoBehaviour
 
     private Coroutine subRoutine;
     public bool isScoring { get; private set; }
-    public bool isDead;
+    public bool isDead = false;
     private Vector2 startPosition;
 
     private int oxygene = 0;
@@ -69,10 +69,16 @@ public class PlayerData : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                SceneManager.LoadScene(0, LoadSceneMode.Single);
-                int count = this.transform.childCount;
+                // int indexScene = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(8, LoadSceneMode.Single);
+                Destroy(this.gameObject);
+
+                /*int count = this.transform.childCount;
                 for (int i = 0; i < count; i++)
-                    Destroy(this.transform.GetChild(i).gameObject);
+                    Destroy(this.transform.GetChild(i).gameObject);*/
+
+                // SceneManager.UnloadSceneAsync(indexScene);
+                // Invoke("Delay", 0.2f);
             }
         }
     }
@@ -112,7 +118,6 @@ public class PlayerData : MonoBehaviour
         startPosition = player.transform.position;
 
         StartCoroutine(Bite());
-        subRoutine = StartCoroutine("LosingOxygene");
     }
 
     public void StopScoring()
@@ -130,6 +135,11 @@ public class PlayerData : MonoBehaviour
         StopAllCoroutines();
         gameOverScene.SetActive(true);
         isDead = true;
+    }
+
+    private void Delay()
+    {
+        // ScoreManagement.instance.AddScore(score);
     }
 
     // Perd de la vie à temps régulier
@@ -163,5 +173,6 @@ public class PlayerData : MonoBehaviour
             }
         }
 
+        subRoutine = StartCoroutine("LosingOxygene");
     }
 }

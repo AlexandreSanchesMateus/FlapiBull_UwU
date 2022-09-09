@@ -18,12 +18,13 @@ public class DeathByTag : MonoBehaviour {
     }
 
     private IEnumerator DeathAnim() {
+
+        PlayerData.instance.Death();
         Animator anim = GetComponent<Animator>();
         anim.SetBool("death", true);
         yield return new WaitForSeconds(1f);
         anim.SetBool("death", false);
 
-        PlayerData.instance.Death();
         Destroy(this.gameObject);
     }
 }
