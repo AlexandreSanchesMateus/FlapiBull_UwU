@@ -12,6 +12,11 @@ public class DeathByTag : MonoBehaviour {
         }
     }
 
+    public void TriggerDeath()
+    {
+        StartCoroutine(DeathAnim());
+    }
+
     private IEnumerator DeathAnim() {
         Animator anim = GetComponent<Animator>();
         anim.SetBool("death", true);

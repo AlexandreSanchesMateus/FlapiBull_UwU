@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerData : MonoBehaviour
 
     [SerializeField] private Text scoreTxt;
     [SerializeField] private Slider oxygeneSlider;
+    [SerializeField] private GameObject gameOverScene;
     [SerializeField] private GameObject player;
     [SerializeField] private int oxygenMax = 100;
     [SerializeField] private int oxygenLost = 10;
@@ -22,6 +24,7 @@ public class PlayerData : MonoBehaviour
 
     private Coroutine subRoutine;
     public bool isScoring { get; private set; }
+    public bool isDead;
     private Vector2 startPosition;
 
     private int oxygene = 0;
@@ -61,6 +64,17 @@ public class PlayerData : MonoBehaviour
             // Update l'affichage
             scoreTxt.text = "" + score;
         }
+
+        if (isDead)
+        {
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
+                int count = this.transform.childCount;
+                for (int i = 0; i < count; i++)
+                    Destroy(this.transform.GetChild(i).gameObject);
+            }
+        }
     }
 
     public void GainOxygene(int value, bool fullHealth = false)
@@ -86,7 +100,7 @@ public class PlayerData : MonoBehaviour
         //Mort du Joueur
         if (oxygene <= 0)
         {
-            // A Ajouter
+            player.GetComponent<DeathByTag>().TriggerDeath();
         }
     }
 
@@ -114,7 +128,8 @@ public class PlayerData : MonoBehaviour
     {
         isScoring = false;
         StopAllCoroutines();
-        this.enabled = false;
+        gameOverScene.SetActive(true);
+        isDead = true;
     }
 
     // Perd de la vie à temps régulier
