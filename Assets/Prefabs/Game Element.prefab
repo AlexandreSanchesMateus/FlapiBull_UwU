@@ -316,8 +316,8 @@ MonoBehaviour:
   oxygeneSlider: {fileID: 5411279863750703965}
   player: {fileID: 2051931656228111418}
   oxygenMax: 100
-  oxygenLost: 10
-  timeLosing: 1
+  oxygenLost: 5
+  timeLosing: 2
   timer: 0.5
   lumiereGeneral: {fileID: 1438106512}
 --- !u!114 &1438106512
@@ -592,6 +592,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7127778046320651986, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
+      propertyPath: randomMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127778046320651986, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
+      propertyPath: randomMin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7127778046320651987, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
       propertyPath: lumiereGeneral
       value: 
@@ -639,6 +647,14 @@ PrefabInstance:
     - target: {fileID: 7127778046320651992, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127778046320651993, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127778046320651996, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
+      propertyPath: oxygeneLost
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d37eb7f1bc9eee42a4d96458632129c, type: 3}
