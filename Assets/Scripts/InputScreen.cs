@@ -12,8 +12,11 @@ public class InputScreen : MonoBehaviour
     public TMP_Text introText;
     public TMP_Text floatroText;
     public GameObject jojoSong;
+    public GameObject megaBullania;
     private Vector3 inputPosition;
     public GameObject wattilogo;
+
+
     void Start()
     {
         inputField = GetComponent<TMP_InputField>();
@@ -32,6 +35,13 @@ public class InputScreen : MonoBehaviour
         else if (inputText.ToLower() == "dl\"jba.ogg" && Input.GetKeyDown(KeyCode.Return))
         {
             jojoSong.SetActive(true);
+            floatroText.text = "";
+            inputField.text = "";
+        }
+
+        else if (inputText.ToLower() == "dl\"megabullania.ogg" && Input.GetKeyDown(KeyCode.Return))
+        {
+            megaBullania.SetActive(true);
             floatroText.text = "";
             inputField.text = "";
         }
