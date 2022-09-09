@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -38, y: -14.00058}
-  m_SizeDelta: {x: 144, y: 32}
+  m_AnchoredPosition: {x: -30.6699, y: -14.00058}
+  m_SizeDelta: {x: 144, y: 17.3397}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5411279863750703965
 MonoBehaviour:
@@ -395,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -37.7, y: -23.8}
-  m_SizeDelta: {x: 71.9945, y: 22.0425}
+  m_AnchoredPosition: {x: -30.67, y: -32.2}
+  m_SizeDelta: {x: 71.9945, y: 19.8434}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5411279864772282714
 CanvasRenderer:
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.10588236, g: 0.10588236, b: 0.60784316, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 0
 --- !u!1 &5411279864772856500
 GameObject:
   m_ObjectHideFlags: 0
