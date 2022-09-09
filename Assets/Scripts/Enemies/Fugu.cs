@@ -50,12 +50,12 @@ public class Fugu : Entity
     {
         while (true)
         {
-            circleCollide.radius = 0.24f;
+            circleCollide.radius = 0.05f;
             spriteRenderer.sprite = fuguPetit;
             yield return new WaitForSeconds(timeLow);
 
 
-            circleCollide.radius = 0.63f;
+            circleCollide.radius = 0.14f;
             spriteRenderer.sprite = fuguGros;
             yield return new WaitForSeconds(timeBig);
         }
