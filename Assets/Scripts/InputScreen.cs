@@ -15,6 +15,7 @@ public class InputScreen : MonoBehaviour
     public GameObject megaBullania;
     private Vector3 inputPosition;
     public GameObject wattilogo;
+    public GameObject espa;
 
 
     void Start()
@@ -42,6 +43,13 @@ public class InputScreen : MonoBehaviour
         else if (inputText.ToLower() == "dl\"megabullania.ogg" && Input.GetKeyDown(KeyCode.Return))
         {
             megaBullania.SetActive(true);
+            floatroText.text = "";
+            inputField.text = "";
+        }
+
+        else if (inputText.ToLower() == "run\"pauline" && Input.GetKeyDown(KeyCode.Return))
+        {
+            espa.SetActive(true);
             floatroText.text = "";
             inputField.text = "";
         }
