@@ -9,6 +9,7 @@ public class Player : Entity
     private bool canShot = true;
 
     [SerializeField] private int numberReverseTic = 5;
+    [SerializeField] private int oxygenLost;
 
     void Update()
     {
@@ -32,6 +33,7 @@ public class Player : Entity
         }
 
         canShot = false;
+        PlayerData.instance.LostOxygene(oxygenLost);
         yield return new WaitForSeconds(1);
         canShot = true;
     }
