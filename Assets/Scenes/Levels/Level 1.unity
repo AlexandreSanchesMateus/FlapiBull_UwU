@@ -986,6 +986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oursin
       objectReference: {fileID: 0}
+    - target: {fileID: 7399224553882369134, guid: 951127a36165842449aff3d6ee5b2185, type: 3}
+      propertyPath: verticalSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 951127a36165842449aff3d6ee5b2185, type: 3}
 --- !u!1001 &1536726516

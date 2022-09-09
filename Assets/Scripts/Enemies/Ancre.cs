@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ancre : Entity
 {
 
-    void Update()
+    void FixedUpdate()
     {
         if (!PlayerData.instance.isScoring)
             return;

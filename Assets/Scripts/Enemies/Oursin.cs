@@ -47,7 +47,7 @@ public class Oursin : Entity
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         if (!PlayerData.instance.isScoring)
