@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7359302855554348640}
   - component: {fileID: 8974405292592128639}
   - component: {fileID: 118783544179793433}
+  - component: {fileID: 2523728919319760818}
   m_Layer: 0
   m_Name: Espadon
   m_TagString: Death
@@ -127,3 +128,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6795324, y: 0.94114494}
   m_EdgeRadius: 0
+--- !u!95 &2523728919319760818
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138818205341470133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb6fd32b70557554395bc63acf92e9ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

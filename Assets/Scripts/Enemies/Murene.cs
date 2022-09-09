@@ -13,6 +13,7 @@ public class Murene : Entity
     private int direction;
     private bool isMoving = false;
     private bool hasBeenActivate = false;
+    private Transform transf;
 
     /*private void Start()
     {
@@ -24,6 +25,7 @@ public class Murene : Entity
 
     public override void OnActivation()
     {
+        transf = GetComponent<Transform>();
         hasBeenActivate = true;
 
         if (startOut)
@@ -56,6 +58,7 @@ public class Murene : Entity
         yield return new WaitForSeconds(timeMove);
         isMoving = false;
         yield return new WaitForSeconds(timeOut);
+        transf.localScale = new Vector3(-transf.localScale.x, transf.localScale.y, transf.localScale.z);
 
         StartCoroutine("GoIn");
     }
@@ -67,7 +70,8 @@ public class Murene : Entity
         yield return new WaitForSeconds(timeMove);
         isMoving = false;
         yield return new WaitForSeconds(timeIn);
-       
+        transf.localScale = new Vector3(-transf.localScale.x, transf.localScale.y, transf.localScale.z);
+
         StartCoroutine("GoOut");
     }
 }
